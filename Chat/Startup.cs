@@ -1,3 +1,4 @@
+using Chat.Hubs;
 using Chat.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,6 +24,17 @@ namespace Chat
         {
             var connection = Configuration.GetConnectionString("default");
             services.AddDbContext<ApplicationContext>(u => u.UseSqlServer(connection));
+            services.AddSignalR();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder =>
+                {
+                    builder.WithOrigins("https://localhost:4200")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials();
+                });
+            });
             services.AddControllers();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "Chat", Version = "v1"}); });
         }
@@ -41,9 +53,15 @@ namespace Chat
 
             app.UseRouting();
 
+            app.UseCors("CorsPolicy");
+
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+                endpoints.MapHub<MessageHub>("/message");
+            });
         }
     }
 }
