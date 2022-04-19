@@ -60,3 +60,5 @@ D:\Programming\SignalR\SignalR-Chat\Chat\obj\Debug\net5.0\Chat.dll
 D:\Programming\SignalR\SignalR-Chat\Chat\obj\Debug\net5.0\ref\Chat.dll
 D:\Programming\SignalR\SignalR-Chat\Chat\obj\Debug\net5.0\Chat.pdb
 D:\Programming\SignalR\SignalR-Chat\Chat\obj\Debug\net5.0\Chat.genruntimeconfig.cache
+D:\Programming\SignalR\SignalR-Chat\Chat\bin\Debug\net5.0\Chat.Views.dll
+D:\Programming\SignalR\SignalR-Chat\Chat\bin\Debug\net5.0\Chat.Views.pdb

@@ -28,7 +28,7 @@ namespace Chat
             {
                 options.AddPolicy("CorsPolicy", builder =>
                 {
-                    builder.WithOrigins("http://localhost:4200/")
+                    builder.WithOrigins("http://localhost:4200")
                         .AllowAnyMethod()
                         .AllowAnyHeader()
                         .AllowCredentials();
@@ -48,10 +48,6 @@ namespace Chat
             }
 
             app.UseHttpsRedirection();
-
-            app.UseDefaultFiles();
-            
-            app.UseStaticFiles();
 
             app.UseRouting();
 

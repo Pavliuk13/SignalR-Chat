@@ -14,6 +14,7 @@ namespace Chat.Controllers
 
         public UserController(ApplicationContext context)
         {
+            
             _context = context;
         }
         
