@@ -1,25 +1,31 @@
-<h1>Users list</h1>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <td>Id</td>
-            <td>UserName</td>
-            <td></td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let user of users">
-            <ng-template [ngTemplateOutlet]="loadTemplate()" [ngTemplateOutletContext]="{ $implicit: user}">
-            </ng-template>
-        </tr>
-    </tbody>
-</table>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Users list</h1>
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <td>Id</td>
+                        <td>UserName</td>
+                        <td>Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users">
+                        <ng-template [ngTemplateOutlet]="loadTemplate()" [ngTemplateOutletContext]="{ $implicit: user}">
+                        </ng-template>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 
 <ng-template #readOnlyTemplate let-user>
     <td>{{user.id}}</td>
     <td>{{user.userName}}</td>
     <td>
-        <input type="button" value="Chat" />
+        <input type="button" value="Chat" class="btn btn-light" />
     </td>
 </ng-template>
