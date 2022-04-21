@@ -1,18 +1,27 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/models/user';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  styleUrls: ['./users.component.css'],
+  providers: [ UserService ]
 })
 
 export class UsersComponent {
-  constructor(serviсe: HttpClient){
-    serviсe.get<User[]>("https://localhost:5001/api/User/Get")
-            .subscribe(x => this.users = x);
+  users: Array<User> = [];
+
+  constructor(private serv: UserService){
+    this.users = new Array<User>();
   }
 
-  users: User[] = [];
+  ngOnInit(): void {
+    this.loadUsers();
+  }
+
+  private loadUsers(){
+    this.serv.getUsers().subscribe(x => this.users = x);
+  }
 }

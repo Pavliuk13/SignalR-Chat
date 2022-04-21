@@ -23,5 +23,15 @@ namespace Chat.Controllers
         {
             return await _context.Users.ToListAsync();
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<User>> Get(int id)
+        {
+            var obj = await _context.Users.FirstOrDefaultAsync(el => el.Id == id);
+            if (obj == null)
+                return NotFound();
+
+            return obj;
+        }
     }
 }
