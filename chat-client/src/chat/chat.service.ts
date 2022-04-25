@@ -4,11 +4,13 @@ import { HttpClient } from '@angular/common/http';
 import { Message } from '../models/message';
 import { Observable, Subject } from 'rxjs';
 import { User } from 'src/models/user';
+import { AppService } from 'src/app/app.service';
 
 
 @Injectable({
     providedIn: 'root'
 })
+
 export class ChatService{
     private  connection: any = new signalR.HubConnectionBuilder().withUrl("https://localhost:5001/chatsocket")
                                          .configureLogging(signalR.LogLevel.Information)
@@ -45,7 +47,8 @@ export class ChatService{
     /* ****************************** Public Mehods **************************************** */
 
     // Calls the controller method
-    public broadcastMessage(msg: any) {
+    public broadcastMessage(msg: Message) {
+        msg.user = AppService.currentUser.userName;
         this.http.post(this.POST_URL, msg).subscribe(data => console.log(data));
         // this.connection.invoke("SendMessage1", msgDto.user, msgDto.msgText).catch(err => console.error(err));    // This can invoke the server method named as "SendMethod1" directly.
     }
