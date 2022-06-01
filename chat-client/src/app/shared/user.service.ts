@@ -20,6 +20,6 @@ export class UserService {
       FirstName: user.FirstName,
       LastName: user.LastName
     }
-    return this.http.post(this.rootUrl + '/api/Account/api/User/Register', body);
+    return this.http.post(this.rootUrl + '/api/account/register', body);
   }
 }

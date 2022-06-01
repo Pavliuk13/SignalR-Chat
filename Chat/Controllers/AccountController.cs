@@ -20,7 +20,7 @@ namespace Chat.Controllers
         }
 
         [HttpPost]
-        [Route("api/User/Register")]
+        [Route("register")]
         public async Task<IdentityResult> Register(AccountModel accountModel)
         {
             var user = new ApplicationUser()
