@@ -2,6 +2,7 @@ using Chat.Hubs;
 using Chat.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,6 +35,7 @@ namespace Chat
                         .AllowCredentials();
                 });
             });
+            services.AddIdentity<ApplicationUser, IdentityRole>(opt => opt.User.RequireUniqueEmail = true).AddEntityFrameworkStores<ApplicationContext>();
             services.AddControllers();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "Chat", Version = "v1"}); });
         }
@@ -55,11 +57,7 @@ namespace Chat
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-                endpoints.MapHub<ChatHub>("/chatsocket");
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }

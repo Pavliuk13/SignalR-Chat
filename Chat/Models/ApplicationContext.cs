@@ -1,19 +1,15 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Chat.Models
 {
-    public class ApplicationContext : DbContext
+    public class ApplicationContext : IdentityDbContext
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
-            
         }
         
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<User>().HasIndex(u => u.UserName).IsUnique();
-        }
-        
-        public DbSet<User> Users { get; set; }
+        public DbSet<ApplicationUser> Users { get; set; }
     }
 }

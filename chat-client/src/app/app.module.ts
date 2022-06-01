@@ -1,31 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ChatComponent } from 'src/chat/chat.component';
-import { UsersComponent } from 'src/users/users.component';
-
-const appRoutes: Routes = [
-  {path: '', component: UsersComponent},
-  {path: 'chat', component: ChatComponent}
-];
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { UserService } from './shared/user.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChatComponent,
-    UsersComponent
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
-    HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
