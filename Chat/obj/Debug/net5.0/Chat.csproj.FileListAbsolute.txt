@@ -23,7 +23,6 @@ D:\Programming\SignalR\SignalR-Chat\Chat\bin\Debug\net5.0\Microsoft.IdentityMode
 D:\Programming\SignalR\SignalR-Chat\Chat\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\Programming\SignalR\SignalR-Chat\Chat\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 D:\Programming\SignalR\SignalR-Chat\Chat\bin\Debug\net5.0\Microsoft.OpenApi.dll
-D:\Programming\SignalR\SignalR-Chat\Chat\bin\Debug\net5.0\Newtonsoft.Json.dll
 D:\Programming\SignalR\SignalR-Chat\Chat\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\Programming\SignalR\SignalR-Chat\Chat\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\Programming\SignalR\SignalR-Chat\Chat\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -66,3 +65,4 @@ D:\Programming\SignalR\SignalR-Chat\Chat\bin\Debug\net5.0\Microsoft.AspNetCore.C
 D:\Programming\SignalR\SignalR-Chat\Chat\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\Programming\SignalR\SignalR-Chat\Chat\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
 D:\Programming\SignalR\SignalR-Chat\Chat\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+D:\Programming\SignalR\SignalR-Chat\Chat\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

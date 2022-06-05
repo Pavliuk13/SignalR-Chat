@@ -1,6 +1,6 @@
-namespace Chat.Models
+namespace Chat.DTOs
 {
-    public class AccountModel
+    public class RegistrationDto
     {
         public string UserName { get; set; }
         
