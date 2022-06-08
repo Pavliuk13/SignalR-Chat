@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Chat.DTOs;
@@ -66,7 +67,7 @@ namespace Chat.Controllers
                 access_token = encodedJwt,
                 username = identity.Result.Name
             };
-            
+
             return Ok(response);
         }
 
@@ -87,11 +88,27 @@ namespace Chat.Controllers
                 ClaimsIdentity claimsIdentity = 
                     new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType,
                         ClaimsIdentity.DefaultRoleClaimType);
-                
+
                 return claimsIdentity;
             }
 
             return null;
+        }
+        
+        [HttpGet]
+        [Route("GetUserClaims")]
+        public RegistrationDto GetUserClaims(string userName)
+        {
+            var user = _context.Users.FirstOrDefault(el => el.UserName == userName);
+            RegistrationDto model = new RegistrationDto()
+            {
+                UserName = user.UserName,
+                Email = user.Email,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+            };
+            
+            return model;
         }
     }
 }

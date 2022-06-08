@@ -11,7 +11,7 @@ namespace Chat
         
         const string KEY = "this is my custom Secret key for authentication";
         
-        public const int LIFETIME = 1;
+        public const int LIFETIME = 60;
         
         public static SymmetricSecurityKey GetSymmetricSecurityKey()
         {
