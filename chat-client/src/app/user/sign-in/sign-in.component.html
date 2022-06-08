@@ -1,0 +1,23 @@
+<div *ngIf="isLoginError" class="red-text center error-message">
+    <i class="fa-solid fa-xmark-large"></i> Incorrect username or password
+</div>
+
+<form #loginForm="ngForm" class="col s12 white" (ngSubmit)="OnSubmit(loginForm)">
+    <div class="row">
+        <div class="input-field col s12">
+            <i class="fa-solid fa-circle-user prefix"></i>
+            <input type="text" #UserName ngModel name="UserName" placeholder="UserName" [(ngModel)]="loginUser.UserName" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <i class="fa-solid fa-lock prefix"></i>
+            <input type="password" #Password ngModel name="Password" placeholder="Password" required [(ngModel)]="loginUser.Password">
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <button [disabled]="!loginForm.valid" class="btn-large btn-submit" type="submit">Login</button>
+        </div>
+    </div>
+</form>
