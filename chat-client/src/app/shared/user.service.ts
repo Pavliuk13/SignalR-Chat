@@ -21,7 +21,8 @@ export class UserService {
       FirstName: user.FirstName,
       LastName: user.LastName
     }
-    return this.http.post(this.rootUrl + '/api/account/register', body);
+    var reqHeader = new HttpHeaders({'No-Auth': 'True'});
+    return this.http.post(this.rootUrl + '/api/account/register', body, {headers: reqHeader});
   }
 
   userAuthentication(login: LoginUser){
@@ -29,11 +30,11 @@ export class UserService {
       UserName: login.UserName,
       Password: login.Password,
     }
-    var reqHeader = new HttpHeaders({'content-type':'application/json'});
+    var reqHeader = new HttpHeaders({'content-type': 'application/json', 'No-Auth': 'True'});
     return this.http.post(this.rootUrl + "/token", body, {headers: reqHeader});
   }
 
   getUserClaims(){
-    return this.http.get(this.rootUrl + '/api/Account/GetUserClaims?userName=' + localStorage.getItem('user_name'), {headers: {"Accept": "application/json", 'Authorization': 'Bearer' + localStorage.getItem('userToken')}});
+    return this.http.get(this.rootUrl + '/api/Account/GetUserClaims?userName=' + localStorage.getItem('user_name'));
   }
 }
