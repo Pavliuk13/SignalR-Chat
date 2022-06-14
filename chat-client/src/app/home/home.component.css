@@ -1,0 +1,33 @@
+:root{
+    --dark-blue: #1B1725;
+    --background: #534B62;
+    --red: #FB3640;
+    --white: #E8F7EE;
+}
+
+.nav-wrapper{
+    background-color: #1B1725;
+}
+
+.brand-logo{
+    color: #E8F7EE;
+    font-weight: bold;
+}
+
+.row{
+    width: 100%;
+}
+
+.card{
+    background-color: #534B62;
+    border: 2px solid #E8F7EE;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.card-content span{
+    color: #E8F7EE;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+}

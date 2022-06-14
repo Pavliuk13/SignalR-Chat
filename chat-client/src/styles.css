@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    font-family: 'Joan', serif;
+    background-color: #534B62;
+}
+
 button.btn-submit{
     background-color: #38547b;
     color: #fff;

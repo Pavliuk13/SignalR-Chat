@@ -1,3 +1,4 @@
+using Chat.Hubs;
 using Chat.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -80,7 +81,11 @@ namespace Chat
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapHub<ChatHub>("/chat");
+                endpoints.MapControllers();
+            });
         }
     }
 }

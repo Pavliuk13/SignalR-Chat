@@ -110,5 +110,21 @@ namespace Chat.Controllers
             
             return model;
         }
+
+        [HttpGet]
+        [Route("GetAllUsers")]
+        public ActionResult<IEnumerable<AccountDto>> GetUsers()
+        {
+            var dtos = _context.Users.Select(el => new AccountDto()
+            {
+                Id = el.Id,
+                UserName = el.UserName,
+                Email = el.Email,
+                FirstName = el.FirstName,
+                LastName = el.LastName
+            }).ToList();
+            
+            return dtos;
+        }
     }
 }

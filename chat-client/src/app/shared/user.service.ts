@@ -37,4 +37,8 @@ export class UserService {
   getUserClaims(){
     return this.http.get(this.rootUrl + '/api/Account/GetUserClaims?userName=' + localStorage.getItem('user_name'));
   }
+
+  getUsers(){
+    return this.http.get(this.rootUrl + '/api/Account/GetAllUsers');
+  }
 }
